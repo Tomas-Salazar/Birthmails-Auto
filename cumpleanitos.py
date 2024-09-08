@@ -75,7 +75,7 @@ def revisar_cumpleaños(df):
     mes_hoy = hoy.month
     
     for index, row in df.iterrows():
-        fecha_cumple = datetime.strptime(row['Fecha de cumpleanios'], '%d/%m/%Y').date()
+        fecha_cumple = datetime.strptime(row['Fecha de cumpleaños'], '%d/%m/%Y').date()
         fecha_cumple_avisar = fecha_cumple - timedelta(days=1)
         
         # Extraer día, mes y año de la fecha de cumpleaños
@@ -113,9 +113,9 @@ def revisar_cumpleaños(df):
 
 def main():
     # Ejecución del script
-    sheet_id = '1TACiVok4vE0U_F5e_6qouobZIB-5KMRN2bQFrWbX5y0'  # Reemplaza con el ID de tu hoja de cálculo
-    rango = 'Cumple!A:E'     # Reemplaza con el rango de tu hoja (o nombre de Tabla)
-    # rango = 'Cumpleanitos'        # Reemplaza con el rango de tu hoja (o nombre de Tabla)
+    sheet_id = '1TACiVok4vE0U_F5e_6qouobZIB-5KMRN2bQFrWbX5y0'  # ID de la hoja
+    rango = 'Cumple!A:E'     # Rango de tu hoja
+    # rango = 'Cumpleanitos'        # Nombre de tabla (o rango de tabla)
     df_google = leer_google_sheets(sheet_id, rango)
     revisar_cumpleaños(df_google)
 
