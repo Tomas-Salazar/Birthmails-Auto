@@ -49,7 +49,7 @@ def enviar_correo(asunto, mensaje):
     load_dotenv()
     remitente = os.getenv('G_MAIL')  # Reemplaza con tu correo
     password = os.getenv('G_PASS')   # Reemplaza con tu contraseña
-    # destinatario = 'tomas_koda@live.com.ar'
+    # destinatario = 'tomas_koda@live.com.ar,tomas98salazar@gmail.com'
     destinatario = 'tomas98salazar@gmail.com,salazarmd146@gmail.com,marcelaviviana0603@gmail.com,joaco.jq@gmail.com'
 
     msg = MIMEMultipart()
@@ -63,7 +63,7 @@ def enviar_correo(asunto, mensaje):
     server.starttls()
     server.login(remitente, password)
     text = msg.as_string()
-    server.sendmail(remitente, destinatario, text)
+    server.sendmail(remitente, destinatario.split(','), text)
     server.quit()
 
 
